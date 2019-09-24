@@ -44,4 +44,12 @@ public class Location {
                     .getKey();
         }
     }
+    public static Location findById(int id) {
+        try(Connection con = DB.sql2o.open()) {
+            String sql = "SELECT * FROM locations WHERE id = :id";
+            return con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Location.class);
+        }
+    }
 }

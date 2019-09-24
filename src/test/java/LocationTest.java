@@ -32,4 +32,22 @@ public class LocationTest {
         testLocation.save();
         assertTrue(Location.getAll().get(0).equals(testLocation));
     }
+    @Test
+    public void all_returnsAllInstancesOfLocation_false() {
+        Location testLocation =  setupLocation();
+        testLocation.save();
+        Location otherLocation = new Location("Zone B");;
+        otherLocation.save();
+        assertEquals(true, Location.getAll().get(0).equals(testLocation));
+        assertEquals(true, Location.getAll().get(1).equals(otherLocation));
+    }
+    @Test
+    public void findById_returnsLocationWithSameId() {
+        Location testLocation = setupLocation();
+        testLocation.save();
+        Location anotherLocation = new Location("Zone B");
+        anotherLocation.save();
+        assertEquals(Location.findById(anotherLocation.getId()), anotherLocation);
+    }
+
 }

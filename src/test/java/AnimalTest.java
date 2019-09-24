@@ -34,5 +34,13 @@ public class AnimalTest {
         testAnimal.save();
         assertTrue(Animal.getAll().get(0).equals(testAnimal));
     }
+    @Test
+    public void findById_returnsAnimalWithSameId() {
+        Animal testAnimal = setupAnimal();
+        testAnimal.save();
+        Animal anotherAnimal = new Animal("Boar");
+        anotherAnimal.save();
+        assertEquals(Animal.findById(anotherAnimal.getId()), anotherAnimal);
+    }
 
 }

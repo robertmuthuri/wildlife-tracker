@@ -38,6 +38,14 @@ public class Animal extends WildLife {
                     .getKey();
         }
     }
-
+    public static Animal findById(int id) {
+        try(Connection con = DB.sql2o.open()) {
+            String sql = "SELECT * FROM animals WHERE id = :id";
+            return con.createQuery(sql)
+                    .addParameter("id", id)
+                    .throwOnMappingFailure(false)
+                    .executeAndFetchFirst(Animal.class);
+        }
+    }
 
 }

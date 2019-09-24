@@ -47,5 +47,11 @@ public class RangerTest {
         anotherRanger.save();
         assertEquals(Ranger.findById(anotherRanger.getId()), anotherRanger);
     }
-
+    @Test
+    public void update_changesExistingRangerName_true(){
+        Ranger testRanger = setupRanger();
+        testRanger.save();
+        Ranger.update(testRanger.getId(), "Wangombe");
+        assertEquals("Wangombe", Ranger.findById(testRanger.getId()).getName());
+    }
 }

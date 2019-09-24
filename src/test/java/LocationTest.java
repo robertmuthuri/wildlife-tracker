@@ -20,4 +20,10 @@ public class LocationTest {
         Location testLocation = setupLocation();
         assertEquals("Zone A", testLocation.getName());
     }
+    @Test
+    public void equals_returnsTrueIfNameAndTypeAreSame_true() {
+        Location testLocation = setupLocation();
+        Location anotherLocation = setupLocation();
+        assertTrue(testLocation.equals(anotherLocation));
+    }
 }

@@ -77,5 +77,13 @@ public class Sighting {
                     .executeUpdate();
         }
     }
+    public void delete() {
+        try(Connection con = DB.sql2o.open()) {
+            String sql = "DELETE FROM sightings WHERE id = :id;";
+            con.createQuery(sql)
+                    .addParameter("id", this.id)
+                    .executeUpdate();
+        }
+    }
 
 }

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{#block "title"}}Wildlife Tracker{{/block}}</title>
+    <!--    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>-->
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+
+</head>
+<body>
+<!--Navbar -->
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark default-color">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
+            aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active" role="presentation"> <a class="nav-link" href="/">Home <span class="sr-only">(current)</span> </a> </li>
+<!--            <li class="nav-item" role="presentation"> <a class="nav-link" href="/animals">Add a New Animal</a>  </li>-->
+
+            <li class="nav-item dropdown" role="presentation">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false"> Animals
+                </a>
+                <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
+                    <a class="dropdown-item" href="/animals/">All Animals</a>
+                    <a class="dropdown-item" href="/animals/new">Add your favorite animal</a>
+                    <a class="dropdown-item" href="/endangeredanimals/new">Add an endangered animal</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown" role="presentation">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false"> Sightings
+                </a>
+                <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
+                    <a class="dropdown-item" href="/sightings/">All Sightings</a>
+                    <a class="dropdown-item" href="/sightingsnonnendangered/new">Normal sighting</a>
+                    <a class="dropdown-item" href="/sightingsendangered/new">Endangered sighting</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown" role="presentation">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false"> Rangers
+                </a>
+                <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
+                    <a class="dropdown-item" href="/rangers/">All Rangers</a>
+                    <a class="dropdown-item" href="/rangers/new">Add another ranger</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown" role="presentation">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false"> Locations
+                </a>
+                <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
+                    <a class="dropdown-item" href="/rangers/">All Locations</a>
+                    <a class="dropdown-item" href="/rangers/new">Add another location</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!--/.Navbar -->
+
+<div class="container">
+    <!--begin main template-->
+    <div class="page-header text-center">
+        <hr>
+        <button type="button" class="btn aqua-gradient btn-lg"><h1>Welcome to the Wildlife Tracker!</h1> </button>
+        <hr>
+        <br>
+        <!--        </div>-->
+    </div>
+
+    <div class="col-md-12">
+        {{#block "content"}}
+
+        {{/block}}
+    </div>
+</div>
+<!--end main template-->
+{{#block "footer"}}
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/js/mdb.min.js"></script>
+    <link rel="stylesheet" href="/js/scripts.js">
+    </body>
+
+    </html>
+{{/block}}

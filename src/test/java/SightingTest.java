@@ -82,4 +82,13 @@ public class SightingTest {
         Sighting.update(testSighting.getId(), 2, 2, 3);
         assertFalse(Sighting.findById(testSighting.getId()).getAnimal_id()==(testSighting.getAnimal_id()));
     }
+    @Test
+    public void deleteRemovesSightingFromDatabase() {
+        Sighting testSighting = setupSighting();
+        testSighting.save();
+        Sighting otherSighting = setupSighting();
+        otherSighting.save();
+        otherSighting.delete();
+        assertEquals(1, Sighting.getAll().size());
+    }
 }

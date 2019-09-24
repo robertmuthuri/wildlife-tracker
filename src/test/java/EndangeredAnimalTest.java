@@ -73,5 +73,13 @@ public class EndangeredAnimalTest {
         EndangeredAnimal.update(testEndangeredAnimal.getId(),"Rhino","ill", "young");
         assertFalse(EndangeredAnimal.findById(testEndangeredAnimal.getId()).getName().equals(testEndangeredAnimal.getName()));
     }
-
+    @Test
+    public void deleteRemovesEndangeredAnimalFromDatabase(){
+        EndangeredAnimal testEndangeredAnimal = setupEndangeredAnimal();
+        testEndangeredAnimal.save();
+        EndangeredAnimal otherEndangeredAnimal = setupEndangeredAnimal();
+        otherEndangeredAnimal.save();
+        otherEndangeredAnimal.delete();
+        assertEquals(1,EndangeredAnimal.getAll().size());
+    }
 }

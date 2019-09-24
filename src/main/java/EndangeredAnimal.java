@@ -54,6 +54,13 @@ public class EndangeredAnimal extends WildLife {
                     .getKey();
         }
     }
-
+    public static EndangeredAnimal findById(int id) {
+        try(Connection con = DB.sql2o.open()) {
+            String sql = "SELECT * FROM animals WHERE id = :id";
+            return con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(EndangeredAnimal.class);
+        }
+    }
 
 }

@@ -44,5 +44,18 @@ public class Sighting {
                     .getKey();
         }
     }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Sighting sighting = (Sighting) o;
+        return getAnimal_id() == sighting.getAnimal_id() &&
+                getRanger_id() == sighting.getRanger_id() &&
+                getLocation_id() == sighting.getLocation_id();
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(getAnimal_id(), getRanger_id(), getLocation_id());
+    }
 }

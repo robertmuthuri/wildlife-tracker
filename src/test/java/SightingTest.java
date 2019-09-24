@@ -45,4 +45,10 @@ public class SightingTest {
         Timestamp sightTime = Sighting.findById(testSighting.getId()).getSightedAt();
         assertEquals(rightNow.getDay(), sightTime.getDay());
     }
+    @Test
+    public void equals_returnsTrueIfAnimalRangerLocationAndSightingTimeAreSame_true() {
+        Sighting testSighting = setupSighting();
+        Sighting anotherSighting = setupSighting();
+        assertTrue(testSighting.equals(anotherSighting));
+    }
 }

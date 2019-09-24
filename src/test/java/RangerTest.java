@@ -24,5 +24,28 @@ public class RangerTest {
         Ranger anotherRanger = setupRanger();
         assertTrue(testRanger.equals(anotherRanger));
     }
+    @Test
+    public void save_successfullyAddsRangerToDatabase_List() {
+        Ranger testRanger =  setupRanger();
+        testRanger.save();
+        assertTrue(Ranger.getAll().get(0).equals(testRanger));
+    }
+    @Test
+    public void getAll_returnsAllInstancesOfRanger_false() {
+        Ranger testRanger =  setupRanger();
+        testRanger.save();
+        Ranger otherRanger = new Ranger("John");;
+        otherRanger.save();
+        assertEquals(true, Ranger.getAll().get(0).equals(testRanger));
+        assertEquals(true, Ranger.getAll().get(1).equals(otherRanger));
+    }
+    @Test
+    public void find_returnsRangerWithSameId() {
+        Ranger testRanger = setupRanger();
+        testRanger.save();
+        Ranger anotherRanger = new Ranger("John");
+        anotherRanger.save();
+        assertEquals(Ranger.findById(anotherRanger.getId()), anotherRanger);
+    }
 
 }

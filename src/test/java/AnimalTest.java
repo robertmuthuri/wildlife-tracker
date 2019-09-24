@@ -11,4 +11,16 @@ public class AnimalTest {
         Animal testAnimal = setupAnimal();
         assertEquals(true, testAnimal instanceof Animal);
     }
+
+    @Test
+    public void Animal_instantiatesWithAName_String() {
+        Animal testAnimal = setupAnimal();
+        assertEquals("Rhino", testAnimal.getName());
+    }
+    @Test
+    public void Animal_instantiatesWithType_NonEndangered() {
+        Animal testAnimal = setupAnimal();
+        assertEquals("Non-Endangered", testAnimal.getType());
+    }
+
 }

@@ -27,4 +27,9 @@ public class EndangeredAnimalTest {
         EndangeredAnimal testEndangeredAnimal = setupEndangeredAnimal();
         assertEquals("healthy", testEndangeredAnimal.getHealth());
     }
+    @Test
+    public void endangeredAnimal_instantiatesWithAge_String() {
+        EndangeredAnimal testEndangeredAnimal = setupEndangeredAnimal();
+        assertEquals("old", testEndangeredAnimal.getAge());
+    }
 }

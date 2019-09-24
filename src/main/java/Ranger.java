@@ -70,5 +70,11 @@ public class Ranger {
                     .executeUpdate();
         }
     }
-
+//    public List<Sighting> getAllSightingsByRanger() {
+//        try(Connection con = DB.sql2o.open()){
+//            return con.createQuery("SELECT * FROM sightings WHERE ranger_id = :id")
+//                    .addParameter("id", this.id)
+//                    .executeAndFetch(Sighting.class);
+//        }
+//    }
 }

@@ -63,5 +63,12 @@ public class RangerTest {
         otherRanger.delete();
         assertEquals(1,Ranger.getAll().size());
     }
-
+//    @Test
+//    public void getSightingsByRangerReturnsSightingsMadeByRanger(){
+//        Ranger testRanger = setupRanger();
+//        testRanger.save();
+//        Sighting testSighting = new Sighting(1,testRanger.getId(),2);
+//        testSighting.save();
+//        assertTrue(testRanger.getAllSightingsByRanger().get(0).equals(testSighting));
+//    }
 }

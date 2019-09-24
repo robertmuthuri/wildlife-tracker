@@ -6,6 +6,9 @@ public class AnimalTest {
     //set up animal
     public Animal setupAnimal() { return new Animal("Rhino"); }
 
+    @Rule
+    public DatabaseRule database = new DatabaseRule();
+
     @Test
     public void animal_instantiatesCorrectly_true() {
         Animal testAnimal = setupAnimal();
@@ -43,10 +46,26 @@ public class AnimalTest {
         assertEquals(Animal.findById(anotherAnimal.getId()), anotherAnimal);
     }
     @Test
-    public void update_changesExistingAnimalName_Boar(){
+    public void updateName_changesExistingAnimalName_Boar(){
         Animal testAnimal = setupAnimal();
         testAnimal.save();
         Animal.update(testAnimal.getId(), "Boar");
         assertEquals("Boar", Animal.findById(testAnimal.getId()).getName());
+    }
+    @Test
+    public void updateChangesExistingAnimal (){
+        Animal testAnimal = setupAnimal();
+        testAnimal.save();
+        Animal.update(testAnimal.getId(),"Monkey");
+        assertFalse(Animal.findById(testAnimal.getId()).getName().equals(testAnimal.getName()));
+    }
+    @Test
+    public void deleteAnimal_removesAnimalFromDatabase(){
+        Animal testAnimal = setupAnimal();
+        testAnimal.save();
+        Animal otherAnimal = setupAnimal();
+        otherAnimal.save();
+        otherAnimal.delete();
+        assertEquals(1,Animal.getAll().size());
     }
 }

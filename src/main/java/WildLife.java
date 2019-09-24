@@ -22,10 +22,18 @@ public abstract class WildLife {
         return  getName().equals(wildLife.getName()) &&
                 getType().equals(wildLife.getType());
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(getName(), getType());
+    }
+    //add common delete method for both classes.
+    public void delete() {
+        try(Connection con = DB.sql2o.open()) {
+            String sql = "DELETE FROM animals WHERE id = :id;";
+            con.createQuery(sql)
+                    .addParameter("id", this.id)
+                    .executeUpdate();
+        }
     }
 }
 

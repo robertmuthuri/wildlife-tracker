@@ -32,4 +32,9 @@ public class EndangeredAnimalTest {
         EndangeredAnimal testEndangeredAnimal = setupEndangeredAnimal();
         assertEquals("old", testEndangeredAnimal.getAge());
     }
+    @Test
+    public void endangeredAnimal_instantiatesWithType_Endangered() {
+        EndangeredAnimal testEndangeredAnimal = setupEndangeredAnimal();
+        assertEquals("Endangered", testEndangeredAnimal.getType());
+    }
 }

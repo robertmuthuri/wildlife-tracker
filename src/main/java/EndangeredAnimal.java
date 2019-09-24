@@ -12,5 +12,7 @@ public class EndangeredAnimal extends WildLife {
         this.name = name;
         this.health = health;
         this.age = age;
+        this.type = ANIMAL_TYPE;
     }
+
 }

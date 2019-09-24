@@ -19,16 +19,13 @@ public abstract class WildLife {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         WildLife wildLife = (WildLife) o;
-        return getId().equals(wildLife.getId()) &&
-                getName().equals(wildLife.getName()) &&
-                getAge().equals(wildLife.getAge()) &&
-                getHealth().equals(wildLife.getHealth()) &&
+        return  getName().equals(wildLife.getName()) &&
                 getType().equals(wildLife.getType());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getName(), getAge(), getHealth(), getType());
+        return Objects.hash(getName(), getType());
     }
 }
 

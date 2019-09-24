@@ -22,5 +22,10 @@ public class AnimalTest {
         Animal testAnimal = setupAnimal();
         assertEquals("Non-Endangered", testAnimal.getType());
     }
-
+    @Test
+    public void equals_returnsTrueIfNameAndTypeAreSame_true() {
+        Animal testAnimal = setupAnimal();
+        Animal anotherAnimal = setupAnimal();
+        assertTrue(testAnimal.equals(anotherAnimal));
+    }
 }

@@ -52,4 +52,15 @@ public class Location {
                     .executeAndFetchFirst(Location.class);
         }
     }
+    public static void update(int id, String name) {
+        try(Connection con = DB.sql2o.open()) {
+            String sql = "UPDATE locations SET name = :name WHERE id = :id";
+            con.createQuery(sql)
+                    .addParameter("name", name)
+                    .addParameter("id", id)
+                    .throwOnMappingFailure(false)
+                    .executeUpdate();
+        }
+    }
+
 }

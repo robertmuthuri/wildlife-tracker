@@ -49,5 +49,18 @@ public class LocationTest {
         anotherLocation.save();
         assertEquals(Location.findById(anotherLocation.getId()), anotherLocation);
     }
-
+    @Test
+    public void update_changesExistingLocationName_true(){
+        Location testLocation = setupLocation();
+        testLocation.save();
+        Location.update(testLocation.getId(), "Zone B");
+        assertEquals("Zone B", Location.findById(testLocation.getId()).getName());
+    }
+    @Test
+    public void updateChangesExistingLocation (){
+        Location testLocation = setupLocation();
+        testLocation.save();
+        Location.update(testLocation.getId(),"Zone B");
+        assertFalse(Location.findById(testLocation.getId()).getName().equals(testLocation.getName()));
+    }
 }

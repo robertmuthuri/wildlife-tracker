@@ -28,4 +28,11 @@ public class AnimalTest {
         Animal anotherAnimal = setupAnimal();
         assertTrue(testAnimal.equals(anotherAnimal));
     }
+    @Test
+    public void save_successfullyAddsAnimalToDatabase_List() {
+        Animal testAnimal =  setupAnimal();
+        testAnimal.save();
+        assertTrue(Animal.getAll().get(0).equals(testAnimal));
+    }
+
 }

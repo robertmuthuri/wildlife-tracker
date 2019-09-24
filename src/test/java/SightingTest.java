@@ -1,6 +1,11 @@
 import static org.junit.Assert.*;
 import org.junit.*;
 
+import java.sql.Timestamp;
+import java.util.Date;
+import java.util.List;
+import java.util.Objects;
+
 public class SightingTest {
 
     // Setup helper method
@@ -32,5 +37,12 @@ public class SightingTest {
         Sighting testSighting = setupSighting();
         assertEquals(1, testSighting.getLocation_id());
     }
-
+     @Test
+    public void sighting_InstantiatesWithSightingTime() {
+        Sighting testSighting = setupSighting();
+        testSighting.save();
+        Timestamp rightNow = new Timestamp(new Date().getTime());
+        Timestamp sightTime = Sighting.findById(testSighting.getId()).getSightedAt();
+        assertEquals(rightNow.getDay(), sightTime.getDay());
+    }
 }

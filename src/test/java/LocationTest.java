@@ -63,4 +63,13 @@ public class LocationTest {
         Location.update(testLocation.getId(),"Zone B");
         assertFalse(Location.findById(testLocation.getId()).getName().equals(testLocation.getName()));
     }
+    @Test
+    public void deleteRemovesLocationFromDatabase(){
+        Location testLocation = setupLocation();
+        testLocation.save();
+        Location otherLocation = setupLocation();
+        otherLocation.save();
+        otherLocation.delete();
+        assertEquals(1,Location.getAll().size());
+    }
 }

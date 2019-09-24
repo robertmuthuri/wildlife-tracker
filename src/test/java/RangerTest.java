@@ -54,4 +54,14 @@ public class RangerTest {
         Ranger.update(testRanger.getId(), "Wangombe");
         assertEquals("Wangombe", Ranger.findById(testRanger.getId()).getName());
     }
+    @Test
+    public void deleteRemovesRangerFromDatabase(){
+        Ranger testRanger = setupRanger();
+        testRanger.save();
+        Ranger otherRanger = setupRanger();
+        otherRanger.save();
+        otherRanger.delete();
+        assertEquals(1,Ranger.getAll().size());
+    }
+
 }

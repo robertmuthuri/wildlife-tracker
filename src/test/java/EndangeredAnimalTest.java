@@ -22,4 +22,9 @@ public class EndangeredAnimalTest {
         EndangeredAnimal testEndangeredAnimal = setupEndangeredAnimal();
         assertEquals("White Rhino", testEndangeredAnimal.getName());
     }
+    @Test
+    public void endangeredAnimal_instantiatesWithHealth_String() {
+        EndangeredAnimal testEndangeredAnimal = setupEndangeredAnimal();
+        assertEquals("healthy", testEndangeredAnimal.getHealth());
+    }
 }

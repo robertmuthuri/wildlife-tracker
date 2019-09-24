@@ -26,4 +26,10 @@ public class LocationTest {
         Location anotherLocation = setupLocation();
         assertTrue(testLocation.equals(anotherLocation));
     }
+    @Test
+    public void save_successfullyAddsLocationToDatabase_List() {
+        Location testLocation =  setupLocation();
+        testLocation.save();
+        assertTrue(Location.getAll().get(0).equals(testLocation));
+    }
 }

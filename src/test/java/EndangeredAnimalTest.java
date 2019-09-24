@@ -17,5 +17,9 @@ public class EndangeredAnimalTest {
         EndangeredAnimal testEndangeredAnimal = setupEndangeredAnimal();
         assertEquals(true, testEndangeredAnimal instanceof EndangeredAnimal);
     }
-
+    @Test
+    public void endangeredAnimal_instantiatesWithName_String() {
+        EndangeredAnimal testEndangeredAnimal = setupEndangeredAnimal();
+        assertEquals("White Rhino", testEndangeredAnimal.getName());
+    }
 }

@@ -1,4 +1,4 @@
-public class EndangeredAnimal {
+public class EndangeredAnimal extends WildLife {
     public static final String ADULT = "Adult";
     public static final String YOUNG = "Young";
     public static final String NEWBORN = "Newborn";
@@ -9,6 +9,6 @@ public class EndangeredAnimal {
     private static final String ANIMAL_TYPE = "Endangered";
 
     public EndangeredAnimal(String name, String health, String age) {
-
+        this.name = name;
     }
 }

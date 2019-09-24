@@ -66,4 +66,16 @@ public class Sighting {
                     .executeAndFetch(Sighting.class);
         }
     }
+    public static void update(int id, int animal_id, int ranger_id, int location_id) {
+        try(Connection con = DB.sql2o.open()) {
+            String sql = "UPDATE sightings SET animal_id = :animal_id, ranger_id = :ranger_id, location_id = :location_id WHERE id = :id";
+            con.createQuery(sql)
+                    .addParameter("animal_id", animal_id)
+                    .addParameter("ranger_id", ranger_id)
+                    .addParameter("location_id", location_id)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        }
+    }
+
 }

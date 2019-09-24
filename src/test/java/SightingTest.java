@@ -37,6 +37,15 @@ public class SightingTest {
         Sighting testSighting = setupSighting();
         assertEquals(1, testSighting.getLocation_id());
     }
+    @Test
+    public void findById_returnsSightingWithSameId() {
+        Sighting testSighting = setupSighting();
+        testSighting.save();
+        Sighting anotherSighting = new Sighting(1, 10, 10);
+        anotherSighting.save();
+        assertEquals(Sighting.findById(anotherSighting.getId()), anotherSighting);
+
+    }
      @Test
     public void sighting_InstantiatesWithSightingTime() {
         Sighting testSighting = setupSighting();
@@ -57,5 +66,20 @@ public class SightingTest {
         Sighting anotherSighting = setupSighting();
         assertTrue(testSighting.equals(anotherSighting));
     }
-
+    @Test
+    public void getAll_returnsAllInstancesOfSighting_false() {
+        Sighting testSighting = setupSighting();
+        testSighting.save();
+        Sighting otherSighting = new Sighting(1, 2, 3);
+        otherSighting.save();
+        assertEquals(true, Sighting.getAll().get(0).equals(testSighting));
+        assertEquals(true, Sighting.getAll().get(1).equals(otherSighting));
+    }
+    @Test
+    public void updateChangesExistingSighting() {
+        Sighting testSighting = setupSighting();
+        testSighting.save();
+        Sighting.update(testSighting.getId(), 2, 2, 3);
+        assertFalse(Sighting.findById(testSighting.getId()).getAnimal_id()==(testSighting.getAnimal_id()));
+    }
 }

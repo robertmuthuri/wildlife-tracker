@@ -18,5 +18,11 @@ public class RangerTest {
         Ranger testRanger = setupRanger();
         assertEquals("Warden", testRanger.getName());
     }
+    @Test
+    public void equals_returnsTrueIfNameAndTypeAreSame_true() {
+        Ranger testRanger = setupRanger();
+        Ranger anotherRanger = setupRanger();
+        assertTrue(testRanger.equals(anotherRanger));
+    }
 
 }

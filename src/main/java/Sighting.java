@@ -58,4 +58,12 @@ public class Sighting {
     public int hashCode() {
         return Objects.hash(getAnimal_id(), getRanger_id(), getLocation_id());
     }
+    public static List<Sighting> getAll() {
+        String sql = "SELECT * FROM sightings;";
+        try(Connection con = DB.sql2o.open()) {
+            return con.createQuery(sql)
+                    .throwOnMappingFailure(false)
+                    .executeAndFetch(Sighting.class);
+        }
+    }
 }

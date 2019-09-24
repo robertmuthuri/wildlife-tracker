@@ -46,9 +46,16 @@ public class SightingTest {
         assertEquals(rightNow.getDay(), sightTime.getDay());
     }
     @Test
+    public void save_successfullyAddsSightingToDatabase_List() {
+        Sighting testSighting = setupSighting();
+        testSighting.save();
+        assertTrue(Sighting.getAll().get(0).equals(testSighting));
+    }
+    @Test
     public void equals_returnsTrueIfAnimalRangerLocationAndSightingTimeAreSame_true() {
         Sighting testSighting = setupSighting();
         Sighting anotherSighting = setupSighting();
         assertTrue(testSighting.equals(anotherSighting));
     }
+
 }

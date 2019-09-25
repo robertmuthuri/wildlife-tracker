@@ -18,6 +18,11 @@ If you would like to reach out regarding any issues you experience on the websit
 
 ## Setup/Installation Requirements
 * There are no set up requirements for this website.
+* Clone or download the repository from GitHub.
+* Extract the archive in the directory to the appropriate directory. 
+* Start the psql server on your machine if it doesn't start on boot up - pg_ctl -D /usr/local/var/postgres start
+* Build the project using your preferred editor - gradle build and then then the project - gradle run.
+* Open the localhost - typically http://localhost:4567 to render the index page.
 
 ### License
 This work is licensed by CC Share Alike.

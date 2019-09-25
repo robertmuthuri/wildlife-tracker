@@ -89,6 +89,17 @@ public class App {
             return new ModelAndView(model, "location-form.hbs");
         }, new HandlebarsTemplateEngine());
 
+        post("/locations/new", (req, res) -> {
+            String name = req.queryParams("name");
+            Location newLocation = new Location(name);
+            newLocation.save();
+            model.put("animals", Animal.getAll());
+            model.put("endangeredanimals", EndangeredAnimal.getAll());
+            model.put("locations", Location.getAll());
+            model.put("rangers", Ranger.getAll());
+            return new ModelAndView(model, index);
+        }, new HandlebarsTemplateEngine());
+
 //        get("/locations", (req, res) -> {
 //            model.put("sightings", Sighting.getAll());
 //            model.put("animals", Animal.getAll());
@@ -98,17 +109,6 @@ public class App {
 //            return new ModelAndView(model, "locations.hbs");
 //        }, new HandlebarsTemplateEngine());
 //
-//
-//        post("/locations/new", (req, res) -> {
-//            String name = req.queryParams("name");
-//            Location newLocation = new Location(name);
-//            newLocation.save();
-//            model.put("animals", Animal.getAll());
-//            model.put("endangeredanimals", EndangeredAnimal.getAll());
-//            model.put("locations", Location.getAll());
-//            model.put("rangers", Ranger.getAll());
-//            return new ModelAndView(model, "locations.hbs");
-//        }, new HandlebarsTemplateEngine());
 //
 //        get("/rangers", (req, res) -> {
 //            model.put("animals", Animal.getAll());

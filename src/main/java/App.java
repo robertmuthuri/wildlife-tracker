@@ -42,18 +42,18 @@ public class App {
             model.put("rangers", Ranger.getAll());
             return new ModelAndView(model, "animal-form.hbs");
         }, new HandlebarsTemplateEngine());
-//
-//        post("/animals/new", (req, res) -> {
-//            String name = req.queryParams("name");
-//            Animal newAnimal = new Animal(name);
-//            newAnimal.save();
-//            model.put("animals", Animal.getAll());
-//            model.put("endangeredanimals", EndangeredAnimal.getAll());
-//            model.put("locations", Location.getAll());
-//            model.put("rangers", Ranger.getAll());
-//            return new ModelAndView(model, "animals.hbs");
-//        }, new HandlebarsTemplateEngine());
-//
+
+        post("/animals/new", (req, res) -> {
+            String name = req.queryParams("name");
+            Animal newAnimal = new Animal(name);
+            newAnimal.save();
+            model.put("animals", Animal.getAll());
+            model.put("endangeredanimals", EndangeredAnimal.getAll());
+            model.put("locations", Location.getAll());
+            model.put("rangers", Ranger.getAll());
+            return new ModelAndView(model, index);
+        }, new HandlebarsTemplateEngine());
+
 //        get("/endangeredanimals/new", (req, res) -> {
 //            model.put("Healthy",EndangeredAnimal.HEALTHY);
 //            model.put("Okay",EndangeredAnimal.OKAY);

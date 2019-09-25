@@ -1,0 +1,83 @@
+{{#partial "content"}}
+
+    {{#if editendangered}}
+        <!--Form without header-->
+        <form action="/endangeredanimals/{{endangeredanimal.id}}/update" method="POST">
+            <div class="card" >
+                <div class="card-block">
+                    <!--Header-->
+                    <div class="form-header blue-gradient">
+                        <h3><i class="fa fa-user"></i> Edit this Animal:</h3>
+                    </div>
+                    <div class="md-form">
+                        <i class="fa"></i>
+                        <input type="text" id="name" name="name" value="{{endangeredanimal.name}}" class="form-control" required>
+                        <label for="name" >Animal's Name</label>
+                    </div>
+                    <div class="md-form">
+                        <select class="mdb-select md-form md-outline colorful-select dropdown-primary" type="number" id="age" name="age" required>
+                            <option value="{{Young}}">Young</option>
+                            <option value="{{Adult}}">Adult</option>
+                            <option value="{{Newborn}}">Newborn</option>
+                        </select>
+                        <label for="age" >Animal's Age</label>
+                    </div>
+                    <div class="md-form">
+                        <select class="mdb-select md-form md-outline colorful-select dropdown-primary" type="number" id="health" name="health" required>
+                            <option value="{{Healthy}}">Healthy</option>
+                            <option value="{{Okay}}">Okay</option>
+                            <option value="{{Ill}}">Ill</option>
+                        </select>
+                        <label for="health" >Animal's Health</label>
+                    </div>
+
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-deep-orange">Update!</button>
+                </div>
+            </div>
+        </form>
+
+    {{else}}
+        <!--Form without header-->
+        <form action="/endangeredanimals/new" method="POST">
+            <div class="card">
+                <div class="card-block">
+                    <!--Header-->
+                    <div class="form-header blue-gradient">
+                        <h3><i class="fa fa-user"></i> Add Endangered Animal:</h3>
+                    </div>
+                    <!--Body-->
+                    <!--                    <br>-->
+                    <!--Body-->
+                    <div class="md-form">
+                        <i class="fa"></i>
+                        <input type="text" id="name" name="name" class="form-control" required>
+                        <label for="name" >Animal's Name</label>
+                    </div>
+                    <div class="md-form">
+                        <select class="mdb-select md-form md-outline colorful-select dropdown-primary" type="number" id="age" name="age" required>
+                            <option value="{{Young}}">Young</option>
+                            <option value="{{Adult}}">Adult</option>
+                            <option value="{{Newborn}}">Newborn</option>
+                        </select>
+                        <div>
+                        <label for="age" >Animal's Age</label>
+                        </div>
+                    </div>
+                    <div class="md-form">
+                        <select class="mdb-select md-form md-outline colorful-select dropdown-primary" type="number" id="health" name="health" required>
+                            <option value="{{Healthy}}">Healthy</option>
+                            <option value="{{Okay}}">Okay</option>
+                            <option value="{{Ill}}">Ill</option>
+                        </select>
+                        <label for="health" >Animal's Health</label>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-deep-orange">Add</button>
+                    </div>
+                </div>
+        </form>
+    {{/if}}
+{{/partial}}
+{{> layout.hbs}}

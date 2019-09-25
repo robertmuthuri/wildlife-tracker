@@ -5,3 +5,28 @@ body {
     background-color: teal;
     background-blend-mode: screen, difference, lighten;
 }
+
+label,
+.md-form {
+    padding-left: 10px;
+    /*margin-left: 10px;*/
+}
+
+.md-outline.select-wrapper+label {
+    top: .5em !important;
+    z-index: 2 !important;
+}
+
+.page-header {
+    color: antiquewhite;
+    font-weight: 400;
+}
+
+.container {
+    horiz-align: center;
+    align-self: center;
+}
+button {
+    font-size: 30px;
+    align-content: center;
+}

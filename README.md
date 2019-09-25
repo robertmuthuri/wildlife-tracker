@@ -1,12 +1,13 @@
-# Caesar Cipher Version 1.0
+# Wildlife-Tracker Version 1.0
 #### By **Robert Muthuri**
 ## Description
-This is a project for ensembling hero squads. A user can add Heroes and choose a squad for them. 
+This is a project for logging wildlife animals, particularly endangered species.
+A user can add animal sightings alongside the ranger, location and time details." 
 
 ## Technologies Used
 * Java.
 * Gradle.
-* JUnit 5.  
+* JUnit 4.  
 * Spark. 
 
 ## Known Bugs

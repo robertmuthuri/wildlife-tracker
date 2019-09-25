@@ -125,25 +125,25 @@ public class App {
             return new ModelAndView(model, "ranger-form.hbs");
         }, new HandlebarsTemplateEngine());
 
-//        post("/rangers/new", (req, res) -> {
-//            String name = req.queryParams("name");
-//            Ranger newRanger = new Ranger(name);
-//            newRanger.save();
-//            model.put("animals", Animal.getAll());
-//            model.put("endangeredanimals", EndangeredAnimal.getAll());
-//            model.put("locations", Location.getAll());
-//            model.put("rangers", Ranger.getAll());
-//            return new ModelAndView(model, "rangers.hbs");
-//        }, new HandlebarsTemplateEngine());
-//
-//        get("/sightings", (req, res) -> {
-//            model.put("animals", Animal.getAll());
-//            model.put("endangeredanimals", EndangeredAnimal.getAll());
-//            model.put("locations", Location.getAll());
-//            model.put("rangers", Ranger.getAll());
-//            return new ModelAndView(model, "sightings.hbs");
-//        }, new HandlebarsTemplateEngine());
-//
+        post("/rangers/new", (req, res) -> {
+            String name = req.queryParams("name");
+            Ranger newRanger = new Ranger(name);
+            newRanger.save();
+            model.put("animals", Animal.getAll());
+            model.put("endangeredanimals", EndangeredAnimal.getAll());
+            model.put("locations", Location.getAll());
+            model.put("rangers", Ranger.getAll());
+            return new ModelAndView(model, "rangers.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/sightings", (req, res) -> {
+            model.put("animals", Animal.getAll());
+            model.put("endangeredanimals", EndangeredAnimal.getAll());
+            model.put("locations", Location.getAll());
+            model.put("rangers", Ranger.getAll());
+            return new ModelAndView(model, "sightings.hbs");
+        }, new HandlebarsTemplateEngine());
+
 //        get("/sightingsnonendangered/new", (req, res) -> {
 //            model.put("animals", Animal.getAll());
 //            model.put("locations", Location.getAll());

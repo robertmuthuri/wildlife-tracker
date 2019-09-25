@@ -4,14 +4,17 @@
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6">
-                <button class="btn blue-gradient"><h2>Locations</h2></button>
-                {{#if locations}}
+                <button class="btn blue-gradient"><h2>Sightings</h2></button>
+                {{#if sightings}}
                 <table id="indexTable" class="table table-striped w-auto">
                     <!--Table head-->
                     <thead class="aqua-gradient">
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
+                        <th>Animal</th>
+                        <th>Ranger</th>
+                        <th>Location</th>
+                        <th>Sighted at</th>
                     </tr>
                     </thead>
                     <!--Table head-->
@@ -20,13 +23,16 @@
                         <tbody>
                         <tr class="table-info">
                             <th scope="row">{{id}}</th>
-                            <td>{{name}}</td>
+                            <td>{{animal}}</td>
+                            <td>{{ranger}}</td>
+                            <td>{{location}}</td>
+                            <td>{{sighted_at}}</td>
                         </tr>
                         </tbody>
                         <!--Table body-->
                     {{/each}}
                 {{else}}
-                    <h3>There are no locations yet!</h3>
+                    <p>There are no Sightings yet!</p>
                 {{/if}}
             </table>
             </div>

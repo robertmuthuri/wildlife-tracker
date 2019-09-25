@@ -1,0 +1,25 @@
+{{#partial "content"}}
+    <!--Form without header-->
+    <form action="/location/new" method="POST">
+        <div class="card">
+            <div class="card-block">
+                <!--Header-->
+                <div class="form-header blue-gradient">
+                    <h3><i class="fa fa-user"></i> Add Location:</h3>
+                </div>
+                <!--Body-->
+                <!--                    <br>-->
+                <!--Body-->
+                <div class="md-form">
+                    <i class="fa"></i>
+                    <input type="text" id="name" name="name" class="form-control" required>
+                    <label for="name" >Location's Name</label>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-deep-orange">Add</button>
+                </div>
+            </div>
+        </div>
+    </form>
+{{/partial}}
+{{> layout.hbs}}

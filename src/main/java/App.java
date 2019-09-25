@@ -68,19 +68,27 @@ public class App {
             return new ModelAndView(model, "endangered-animal-form.hbs");
         }, new HandlebarsTemplateEngine());
 
-//        post("/endangeredanimals/new", (req, res) -> {
-//            String name = req.queryParams("name");
-//            String age = req.queryParams("age");
-//            String health = req.queryParams("health");
-//            EndangeredAnimal newEndangeredAnimal = new EndangeredAnimal(name,health,age);
-//            newEndangeredAnimal.save();
-//            model.put("animals", Animal.getAll());
-//            model.put("locations", Location.getAll());
-//            model.put("rangers", Ranger.getAll());
-//            model.put("endangeredanimals", EndangeredAnimal.getAll());
-//            return new ModelAndView(model, "animals.hbs");
-//        }, new HandlebarsTemplateEngine());
-//
+        post("/endangeredanimals/new", (req, res) -> {
+            String name = req.queryParams("name");
+            String age = req.queryParams("age");
+            String health = req.queryParams("health");
+            EndangeredAnimal newEndangeredAnimal = new EndangeredAnimal(name,health,age);
+            newEndangeredAnimal.save();
+            model.put("animals", Animal.getAll());
+            model.put("locations", Location.getAll());
+            model.put("rangers", Ranger.getAll());
+            model.put("endangeredanimals", EndangeredAnimal.getAll());
+            return new ModelAndView(model, index);
+        }, new HandlebarsTemplateEngine());
+
+        get("/locations/new", (req, res) -> {
+            model.put("animals", Animal.getAll());
+            model.put("endangeredanimals", EndangeredAnimal.getAll());
+            model.put("locations", Location.getAll());
+            model.put("rangers", Ranger.getAll());
+            return new ModelAndView(model, "location-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
 //        get("/locations", (req, res) -> {
 //            model.put("sightings", Sighting.getAll());
 //            model.put("animals", Animal.getAll());
@@ -90,14 +98,6 @@ public class App {
 //            return new ModelAndView(model, "locations.hbs");
 //        }, new HandlebarsTemplateEngine());
 //
-//
-//        get("/locations/new", (req, res) -> {
-//            model.put("animals", Animal.getAll());
-//            model.put("endangeredanimals", EndangeredAnimal.getAll());
-//            model.put("locations", Location.getAll());
-//            model.put("rangers", Ranger.getAll());
-//            return new ModelAndView(model, "location-form.hbs");
-//        }, new HandlebarsTemplateEngine());
 //
 //        post("/locations/new", (req, res) -> {
 //            String name = req.queryParams("name");
@@ -109,7 +109,6 @@ public class App {
 //            model.put("rangers", Ranger.getAll());
 //            return new ModelAndView(model, "locations.hbs");
 //        }, new HandlebarsTemplateEngine());
-//
 //
 //        get("/rangers", (req, res) -> {
 //            model.put("animals", Animal.getAll());
@@ -152,7 +151,6 @@ public class App {
 //            model.put("rangers", Ranger.getAll());
 //            return new ModelAndView(model, "sightNonEndangered-form.hbs");
 //        }, new HandlebarsTemplateEngine());
-//
 //
 //        get("/sightingsendangered/new", (req, res) -> {
 //            model.put("animals", Animal.getAll());

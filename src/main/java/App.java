@@ -35,22 +35,13 @@ public class App {
             return new ModelAndView(model, index);
         }, new HandlebarsTemplateEngine());
 
-        // get animals
-//        get("/animals", (req, res) -> {
-//            model.put("animals", Animal.getAll());
-//            model.put("endangeredanimals", EndangeredAnimal.getAll());
-//            model.put("locations", Location.getAll());
-//            model.put("rangers", Ranger.getAll());
-//            return new ModelAndView(model, "animals.hbs");
-//        }, new HandlebarsTemplateEngine());
-
-//        get("/animals/new", (req, res) -> {
-//            model.put("animals", Animal.getAll());
-//            model.put("endangeredanimals", EndangeredAnimal.getAll());
-//            model.put("locations", Location.getAll());
-//            model.put("rangers", Ranger.getAll());
-//            return new ModelAndView(model, "nonEndangered-form.hbs");
-//        }, new HandlebarsTemplateEngine());
+        get("/animals/new", (req, res) -> {
+            model.put("animals", Animal.getAll());
+            model.put("endangeredanimals", EndangeredAnimal.getAll());
+            model.put("locations", Location.getAll());
+            model.put("rangers", Ranger.getAll());
+            return new ModelAndView(model, "animal-form.hbs");
+        }, new HandlebarsTemplateEngine());
 //
 //        post("/animals/new", (req, res) -> {
 //            String name = req.queryParams("name");

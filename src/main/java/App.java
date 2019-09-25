@@ -141,59 +141,43 @@ public class App {
             model.put("endangeredanimals", EndangeredAnimal.getAll());
             model.put("locations", Location.getAll());
             model.put("rangers", Ranger.getAll());
+            model.put("sightings",Sighting.getAll());
             return new ModelAndView(model, "sightings.hbs");
         }, new HandlebarsTemplateEngine());
 
-//        get("/sightingsnonendangered/new", (req, res) -> {
-//            model.put("animals", Animal.getAll());
-//            model.put("locations", Location.getAll());
-//            model.put("rangers", Ranger.getAll());
-//            return new ModelAndView(model, "sightNonEndangered-form.hbs");
-//        }, new HandlebarsTemplateEngine());
-//
-//        get("/sightingsendangered/new", (req, res) -> {
-//            model.put("animals", Animal.getAll());
-//            model.put("endangeredanimals", EndangeredAnimal.getAll());
-//            model.put("locations", Location.getAll());
-//            model.put("rangers", Ranger.getAll());
-//            model.put("endangered", true);
-//            return new ModelAndView(model, "sighting-form.hbs");
-//        }, new HandlebarsTemplateEngine());
-//
-//        post("/sightingsnonendangered/new", (req, res) -> {
-//            int animal_id = Integer.parseInt(req.queryParams("animal"));
-//            int ranger_id = Integer.parseInt(req.queryParams("ranger"));
-//            int location_id = Integer.parseInt(req.queryParams("location"));
-//            Sighting newSighting = new Sighting(animal_id, ranger_id,location_id);
-//            newSighting.save();
-//            String animal = Animal.find(animal_id).getName();
-//            String type = Animal.find(animal_id).getType();
-//            String ranger = Ranger.find(ranger_id).getName();
-//            String location = Location.find(location_id).getName();
-//            int sighting_id = newSighting.getId();
-//            model.put("animals", Animal.getAll());
-//            model.put("endangeredanimals", EndangeredAnimal.getAll());
-//            model.put("locations", Location.getAll());
-//            model.put("rangers", Ranger.getAll());
-//            return new ModelAndView(model, "sightings.hbs");
-//        }, new HandlebarsTemplateEngine());
-//
-//        post("/sightingsendangered/new", (req, res) -> {
-//            int animal_id = Integer.parseInt(req.queryParams("animal"));
-//            int ranger_id = Integer.parseInt(req.queryParams("ranger"));
-//            int location_id = Integer.parseInt(req.queryParams("location"));
-//            Sighting newSighting = new Sighting(animal_id, ranger_id,location_id);
-//            newSighting.save();
-//            String animal = EndangeredAnimal.find(animal_id).getName();
-//            String type = EndangeredAnimal.find(animal_id).getType();
-//            String ranger = Ranger.find(ranger_id).getName();
-//            String location = Location.find(location_id).getName();
-//            int sighting_id = newSighting.getId();
-//            model.put("animals", Animal.getAll());
-//            model.put("endangeredanimals", EndangeredAnimal.getAll());
-//            model.put("locations", Location.getAll());
-//            model.put("rangers", Ranger.getAll());
-//            return new ModelAndView(model, "sightings.hbs");
-//        }, new HandlebarsTemplateEngine());
+        get("/sightings/new", (req, res) -> {
+            model.put("animals", Animal.all());
+            model.put("endangeredanimals", EndangeredAnimal.getAll());
+            model.put("locations", Location.getAll());
+            model.put("rangers", Ranger.getAll());
+            return new ModelAndView(model, "sightings-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        post("/sightings/new", (req, res) -> {
+            int animal_id = Integer.parseInt(req.queryParams("animal"));
+            int ranger_id = Integer.parseInt(req.queryParams("ranger"));
+            int location_id = Integer.parseInt(req.queryParams("location"));
+            Sighting newSighting = new Sighting(animal_id, ranger_id,location_id);
+            newSighting.save();
+            model.put("animals", Animal.getAll());
+            model.put("endangeredanimals", EndangeredAnimal.getAll());
+            model.put("locations", Location.getAll());
+            model.put("rangers", Ranger.getAll());
+            model.put("sightings",Sighting.getAll());
+            return new ModelAndView(model, "sightings.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        post("/sightings/new", (req, res) -> {
+            int animal_id = Integer.parseInt(req.queryParams("animal"));
+            int ranger_id = Integer.parseInt(req.queryParams("ranger"));
+            int location_id = Integer.parseInt(req.queryParams("location"));
+            Sighting newSighting = new Sighting(animal_id, ranger_id,location_id);
+            newSighting.save();
+            model.put("animals", Animal.getAll());
+            model.put("endangeredanimals", EndangeredAnimal.getAll());
+            model.put("locations", Location.getAll());
+            model.put("rangers", Ranger.getAll());
+            return new ModelAndView(model, "sightings.hbs");
+        }, new HandlebarsTemplateEngine());
     }
 }

@@ -1,4 +1,6 @@
 import org.sql2o.*;
+
+import java.util.List;
 import java.util.Objects;
 
 public abstract class WildLife {
@@ -33,6 +35,14 @@ public abstract class WildLife {
             con.createQuery(sql)
                     .addParameter("id", this.id)
                     .executeUpdate();
+        }
+    }
+    public static List<Animal> all() {
+        String sql = "SELECT * FROM animals;";
+        try(Connection con = DB.sql2o.open()) {
+            return con.createQuery(sql)
+                    .throwOnMappingFailure(false)
+                    .executeAndFetch(Animal.class);
         }
     }
 }

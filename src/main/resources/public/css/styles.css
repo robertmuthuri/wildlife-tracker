@@ -1,0 +1,7 @@
+body {
+    background-image:url("../images/rhino.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: teal;
+    background-blend-mode: screen, difference, lighten;
+}

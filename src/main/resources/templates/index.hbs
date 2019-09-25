@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+{{#partial "content"}}
+    <!--Table-->
+    <div class="container">
+        <div class="row">
+<!--            <div class="col-md-3"></div>-->
+            <div class="col-md-6">
+                {{#if animals}}
+                    <h3>Animals</h3>
+                    <table id="indexTable" class="table table-striped w-auto">
+                        <!--Table head-->
+                        <thead class="aqua-gradient">
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Type</th>
+                        </tr>
+                        </thead>
+                        <!--Table head-->
+
+                        <!--Table body-->
+                        <tbody>
+                        {{#each animals}}
+                            <tr class="table-info">
+                                <th scope="row">{{id}}</th>
+                                <td>{{name}}</td>
+                                <td>
+                                    <a href="">
+                                        <button class="btn btn-outline-info btn-rounded-sm waves-effect">View Details</button>
+                                    </a>
+                                </td>
+                            </tr>
+                        {{/each}}
+                        </tbody>
+                        <!--Table body-->
+                    </table>
+                    <!--Table-->
+                {{else}}
+                    <h3 class="aqua-gradient">No Animals currently! </h3>
+                {{/if}}
+            </div>
+            <div class="col-md-6">
+                {{#if endangeredanimals}}
+                    <h3>Endangered Animals</h3>
+                    <table id="indexTable" class="table table-striped w-auto">
+                        <!--Table head-->
+                        <thead class="aqua-gradient">
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Health</th>
+                            <th>Type</th>
+                        </tr>
+                        </thead>
+                        <!--Table head-->
+
+                        <!--Table body-->
+                        <tbody>
+                        {{#each animals}}
+                            <tr class="table-info">
+                                <th scope="row">{{id}}</th>
+                                <td>{{name}}</td>
+                                <td>{{age}}</td>
+                                <td>{{health}}</td>
+                                <td>{{type}}</td>
+
+                            </tr>
+                        {{/each}}
+                        </tbody>
+                        <!--Table body-->
+                    </table>
+                    <!--Table-->
+                {{else}}
+                    <h3 class="aqua-gradient">No Endangered Animals currently!</h3>
+                {{/if}}
+            </div>
+<!--            <div class="col-md-3"></div>-->
+        </div>
+    </div>
+{{/partial}}
+
+</body>
+{{> layout.hbs}}

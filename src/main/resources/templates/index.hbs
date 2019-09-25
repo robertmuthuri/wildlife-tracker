@@ -41,7 +41,7 @@
             </div>
             <div class="col-md-6">
                 {{#if endangeredanimals}}
-                    <h3>Endangered Animals</h3>
+                    <h3 class="aqua-gradient">Endangered Animals</h3>
                     <table id="indexTable" class="table table-striped w-auto">
                         <!--Table head-->
                         <thead class="aqua-gradient">
@@ -57,7 +57,7 @@
 
                         <!--Table body-->
                         <tbody>
-                        {{#each animals}}
+                        {{#each endangeredanimals}}
                             <tr class="table-info">
                                 <th scope="row">{{id}}</th>
                                 <td>{{name}}</td>

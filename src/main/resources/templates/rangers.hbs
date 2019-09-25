@@ -4,8 +4,8 @@
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6">
-                <button class="btn blue-gradient"><h2>Locations</h2></button>
-                {{#if locations}}
+                <button class="btn blue-gradient"><h2>Rangers</h2></button>
+                {{#if rangers}}
                 <table id="indexTable" class="table table-striped w-auto">
                     <!--Table head-->
                     <thead class="aqua-gradient">
@@ -15,7 +15,7 @@
                     </tr>
                     </thead>
                     <!--Table head-->
-                    {{#each locations}}
+                    {{#each rangers}}
                         <!--Table body-->
                         <tbody>
                         <tr class="table-info">
@@ -26,7 +26,7 @@
                         <!--Table body-->
                     {{/each}}
                 {{else}}
-                    <p>There are no locations yet!</p>
+                    <p>There are no Rangers yet!</p>
                 {{/if}}
             </table>
             </div>

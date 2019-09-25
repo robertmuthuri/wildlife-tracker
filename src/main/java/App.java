@@ -153,6 +153,7 @@ public class App {
             return new ModelAndView(model, "sightings-form.hbs");
         }, new HandlebarsTemplateEngine());
 
+
         post("/sightings/new", (req, res) -> {
             int animal_id = Integer.parseInt(req.queryParams("animal"));
             int ranger_id = Integer.parseInt(req.queryParams("ranger"));
